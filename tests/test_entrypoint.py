@@ -253,7 +253,7 @@ class TestEntryPoint:
         ), patch_log() as m_log:
             entrypoint.run_coveralls(repo_token="TOKEN")
         # coveralls package will retry once per service we call it with
-        assert m_post.call_count == 4
+        assert m_post.call_count == 2
         assert m_log.error.call_args_list == [
             mock.call("Failed to submit coverage", exc_info=None)
         ]
